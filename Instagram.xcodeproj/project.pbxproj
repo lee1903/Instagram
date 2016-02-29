@@ -13,9 +13,11 @@
 		E4350C981C7CC13200034884 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4350C961C7CC13200034884 /* Main.storyboard */; };
 		E4350C9A1C7CC13200034884 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4350C991C7CC13200034884 /* Assets.xcassets */; };
 		E4350C9D1C7CC13200034884 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4350C9B1C7CC13200034884 /* LaunchScreen.storyboard */; };
+		E439388E1C7D041400E1F53A /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439388D1C7D041400E1F53A /* PostCell.swift */; };
 		E4B024151C7CD89D00919300 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B024141C7CD89D00919300 /* HomeViewController.swift */; };
 		E4B024171C7CD8A700919300 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B024161C7CD8A700919300 /* PostViewController.swift */; };
 		E4B024191C7CD8B100919300 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B024181C7CD8B100919300 /* ProfileViewController.swift */; };
+		E4EBB8DC1C7CFB6D00A339B8 /* UserMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EBB8DB1C7CFB6D00A339B8 /* UserMedia.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,9 +31,11 @@
 		E4350C991C7CC13200034884 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4350C9C1C7CC13200034884 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4350C9E1C7CC13200034884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E439388D1C7D041400E1F53A /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		E4B024141C7CD89D00919300 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E4B024161C7CD8A700919300 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		E4B024181C7CD8B100919300 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E4EBB8DB1C7CFB6D00A339B8 /* UserMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMedia.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,8 @@
 		E4350C911C7CC13200034884 /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				E439388C1C7D03F600E1F53A /* Views */,
+				E4EBB8DA1C7CFB5900A339B8 /* Models */,
 				E4B024131C7CD21500919300 /* ViewControllers */,
 				E4350C921C7CC13200034884 /* AppDelegate.swift */,
 				E4350C961C7CC13200034884 /* Main.storyboard */,
@@ -92,6 +98,14 @@
 				E4350C9E1C7CC13200034884 /* Info.plist */,
 			);
 			path = Instagram;
+			sourceTree = "<group>";
+		};
+		E439388C1C7D03F600E1F53A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E439388D1C7D041400E1F53A /* PostCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		E4B024131C7CD21500919300 /* ViewControllers */ = {
@@ -103,6 +117,14 @@
 				E4B024181C7CD8B100919300 /* ProfileViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E4EBB8DA1C7CFB5900A339B8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E4EBB8DB1C7CFB6D00A339B8 /* UserMedia.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,7 +250,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E439388E1C7D041400E1F53A /* PostCell.swift in Sources */,
 				E4B024171C7CD8A700919300 /* PostViewController.swift in Sources */,
+				E4EBB8DC1C7CFB6D00A339B8 /* UserMedia.swift in Sources */,
 				E4350C951C7CC13200034884 /* LoginViewController.swift in Sources */,
 				E4B024191C7CD8B100919300 /* ProfileViewController.swift in Sources */,
 				E4350C931C7CC13200034884 /* AppDelegate.swift in Sources */,

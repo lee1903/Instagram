@@ -31,12 +31,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userDidLogoutNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidPost", name: userDidPostNotification, object: nil)
         
         return true
     }
     
     func userDidLogout(){
         let vc = storyboard.instantiateInitialViewController()
+        window?.rootViewController = vc
+    }
+    
+    func userDidPost(){
+        let vc = storyboard.instantiateViewControllerWithIdentifier("TabBarController")
         window?.rootViewController = vc
     }
 

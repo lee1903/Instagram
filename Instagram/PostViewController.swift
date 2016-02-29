@@ -8,10 +8,15 @@
 
 import UIKit
 
+let userDidPostNotification = "userDidPostNotification"
+
 class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
-    
+
+    @IBOutlet weak var setImageButton: UIButton!
     @IBOutlet weak var captionTextView: UITextView!
     @IBOutlet weak var contentImageView: UIImageView!
+    
+    var toSelectImage = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +25,6 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         captionTextView.text = "Say something about this picture..."
         captionTextView.textColor = UIColor.lightGrayColor()
         captionTextView.returnKeyType = .Done
-        
         
         let vc = UIImagePickerController()
         vc.delegate = self
@@ -68,8 +72,56 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
         return true
     }
-
     
+    override func viewWillAppear(animated: Bool) {
+        if contentImageView.image != nil{
+            setImageButton.hidden = true
+        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if toSelectImage == true{
+            let vc = UIImagePickerController()
+            vc.delegate = self
+            vc.allowsEditing = true
+            vc.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            
+            self.presentViewController(vc, animated: true, completion: nil)
+        }
+    }
+
+    @IBAction func onSubmit(sender: AnyObject) {
+        var caption: String
+        if captionTextView.text == nil{
+            caption = ""
+        } else{
+            caption = captionTextView.text!
+        }
+        if contentImageView.image != nil{
+            UserMedia.postUserImage(contentImageView.image!, withCaption: caption) { (sucess,error) -> Void in
+                if let error = error{
+                    print("post unsuccessful")
+                    print(error.localizedDescription)
+                }else{
+                    print("post successful")
+                    NSNotificationCenter.defaultCenter().postNotificationName(userDidPostNotification, object: nil)
+                    self.toSelectImage = true
+                }
+            }
+        } else{
+            let alert = UIAlertController(title: "Error", message: "You must select a picture to submit", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func onSetImage(sender: AnyObject) {
+        let vc = UIImagePickerController()
+        vc.delegate = self
+        vc.allowsEditing = true
+        vc.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
